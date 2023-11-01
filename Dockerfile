@@ -10,6 +10,7 @@ RUN apt-get update && \
     chown -R logstash /usr/share/logstash
 
 COPY logstash.conf /usr/share/logstash/pipeline/logstash.conf
+COPY pipelines.yml /usr/share/logstash/config/pipelines.yml
 
 USER logstash
 
