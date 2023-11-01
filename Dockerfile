@@ -12,3 +12,5 @@ RUN apt-get update && \
 COPY logstash.conf /usr/share/logstash/pipeline/logstash.conf
 
 USER logstash
+
+ENTRYPOINT ["/usr/share/logstash/bin/logstash"]
