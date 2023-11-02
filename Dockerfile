@@ -7,7 +7,9 @@ RUN apt-get update && \
     echo "deb [signed-by=/usr/share/keyrings/elastic-keyring.gpg] https://artifacts.elastic.co/packages/oss-8.x/apt stable main" | tee -a /etc/apt/sources.list.d/elastic-8.x.list && \
     apt-get update && \ 
     apt-get install logstash-oss=1:8.9.2-1 && \ 
-    chown -R logstash /usr/share/logstash
+    chown -R logstash /usr/share/logstash && \ 
+    /usr/share/logstash/bin/logstash-plugin remove logstash-integration-aws && \
+    /usr/share/logstash/bin/logstash-plugin install logstash-input-s3-cos
 
 COPY logstash.conf /usr/share/logstash/pipeline/logstash.conf
 COPY pipelines.yml /usr/share/logstash/config/pipelines.yml
