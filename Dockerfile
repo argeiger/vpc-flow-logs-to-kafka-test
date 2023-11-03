@@ -11,7 +11,6 @@ RUN apt-get update && \
 
 COPY logstash.conf /usr/share/logstash/pipeline/logstash.conf
 COPY pipelines.yml /usr/share/logstash/config/pipelines.yml
-COPY jvm.options /usr/share/logstash/config/jvm.options
 
 USER logstash
 
